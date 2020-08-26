@@ -12,5 +12,11 @@ namespace WCFArticle
 
         [OperationContract]
         List<Article> GetAllArticles();
+
+        [OperationContract]
+        Article SaveArticleToFile(Article article);
+
+        [OperationContract]
+        Article ModifyArticle(Article article);
     }
 }

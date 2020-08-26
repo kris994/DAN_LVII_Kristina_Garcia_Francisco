@@ -27,4 +27,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SaveArticleToFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFArticle.Model" minOccurs="0" name="article" nillable="true" type="q2:Article" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveArticleToFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFArticle.Model" minOccurs="0" name="SaveArticleToFileResult" nillable="true" type="q3:Article" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyArticle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFArticle.Model" minOccurs="0" name="article" nillable="true" type="q4:Article" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyArticleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFArticle.Model" minOccurs="0" name="ModifyArticleResult" nillable="true" type="q5:Article" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

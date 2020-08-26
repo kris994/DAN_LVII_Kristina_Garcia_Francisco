@@ -59,20 +59,5 @@ namespace WCFArticle.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sveska:100:120.00
-        ///Olovka:200:50.00
-        ///Gumica:200:30.00
-        ///Torba:10:3049.99
-        ///Knjiga:30:959.99
-        ///Papir za stampanje:1200:3.99
-        ///Digitron:5:748.99.
-        /// </summary>
-        internal static string Articles {
-            get {
-                return ResourceManager.GetString("Articles", resourceCulture);
-            }
-        }
     }
 }

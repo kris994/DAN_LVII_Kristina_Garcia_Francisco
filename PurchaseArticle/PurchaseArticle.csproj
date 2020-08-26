@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArticleFile.cs" />
+    <Compile Include="ArticleUIData.cs" />
     <Compile Include="Connected Services\ArticleServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,19 +71,25 @@
     <None Include="Connected Services\ArticleServiceReference\Service1.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ArticleServiceReference\ArticleService.disco" />
-    <None Include="Connected Services\ArticleServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\ArticleServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\ArticleServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ArticleServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ArticleServiceReference\ArticleService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ArticleServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ArticleServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ArticleServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,6 +19,18 @@
   <wsdl:message name="IArticleService_GetAllArticles_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllArticlesResponse" />
   </wsdl:message>
+  <wsdl:message name="IArticleService_SaveArticleToFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveArticleToFile" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_SaveArticleToFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveArticleToFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_ModifyArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyArticle" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_ModifyArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyArticleResponse" />
+  </wsdl:message>
   <wsdl:portType name="IArticleService">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetData" message="tns:IArticleService_GetData_InputMessage" />
@@ -27,6 +39,14 @@
     <wsdl:operation name="GetAllArticles">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetAllArticles" message="tns:IArticleService_GetAllArticles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetAllArticlesResponse" message="tns:IArticleService_GetAllArticles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveArticleToFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/SaveArticleToFile" message="tns:IArticleService_SaveArticleToFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/SaveArticleToFileResponse" message="tns:IArticleService_SaveArticleToFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/ModifyArticle" message="tns:IArticleService_ModifyArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/ModifyArticleResponse" message="tns:IArticleService_ModifyArticle_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IArticleService" type="tns:IArticleService">
@@ -42,6 +62,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllArticles">
       <soap:operation soapAction="http://tempuri.org/IArticleService/GetAllArticles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveArticleToFile">
+      <soap:operation soapAction="http://tempuri.org/IArticleService/SaveArticleToFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyArticle">
+      <soap:operation soapAction="http://tempuri.org/IArticleService/ModifyArticle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

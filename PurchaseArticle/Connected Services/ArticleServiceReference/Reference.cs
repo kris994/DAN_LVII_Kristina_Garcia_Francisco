@@ -105,6 +105,18 @@ namespace PurchaseArticle.ArticleServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetAllArticles", ReplyAction="http://tempuri.org/IArticleService/GetAllArticlesResponse")]
         System.Threading.Tasks.Task<PurchaseArticle.ArticleServiceReference.Article[]> GetAllArticlesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/SaveArticleToFile", ReplyAction="http://tempuri.org/IArticleService/SaveArticleToFileResponse")]
+        PurchaseArticle.ArticleServiceReference.Article SaveArticleToFile(PurchaseArticle.ArticleServiceReference.Article article);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/SaveArticleToFile", ReplyAction="http://tempuri.org/IArticleService/SaveArticleToFileResponse")]
+        System.Threading.Tasks.Task<PurchaseArticle.ArticleServiceReference.Article> SaveArticleToFileAsync(PurchaseArticle.ArticleServiceReference.Article article);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/ModifyArticle", ReplyAction="http://tempuri.org/IArticleService/ModifyArticleResponse")]
+        PurchaseArticle.ArticleServiceReference.Article ModifyArticle(PurchaseArticle.ArticleServiceReference.Article article);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/ModifyArticle", ReplyAction="http://tempuri.org/IArticleService/ModifyArticleResponse")]
+        System.Threading.Tasks.Task<PurchaseArticle.ArticleServiceReference.Article> ModifyArticleAsync(PurchaseArticle.ArticleServiceReference.Article article);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -148,6 +160,22 @@ namespace PurchaseArticle.ArticleServiceReference {
         
         public System.Threading.Tasks.Task<PurchaseArticle.ArticleServiceReference.Article[]> GetAllArticlesAsync() {
             return base.Channel.GetAllArticlesAsync();
+        }
+        
+        public PurchaseArticle.ArticleServiceReference.Article SaveArticleToFile(PurchaseArticle.ArticleServiceReference.Article article) {
+            return base.Channel.SaveArticleToFile(article);
+        }
+        
+        public System.Threading.Tasks.Task<PurchaseArticle.ArticleServiceReference.Article> SaveArticleToFileAsync(PurchaseArticle.ArticleServiceReference.Article article) {
+            return base.Channel.SaveArticleToFileAsync(article);
+        }
+        
+        public PurchaseArticle.ArticleServiceReference.Article ModifyArticle(PurchaseArticle.ArticleServiceReference.Article article) {
+            return base.Channel.ModifyArticle(article);
+        }
+        
+        public System.Threading.Tasks.Task<PurchaseArticle.ArticleServiceReference.Article> ModifyArticleAsync(PurchaseArticle.ArticleServiceReference.Article article) {
+            return base.Channel.ModifyArticleAsync(article);
         }
     }
 }

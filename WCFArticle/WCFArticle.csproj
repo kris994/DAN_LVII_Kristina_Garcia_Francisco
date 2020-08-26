@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ArticleService.svc" />
-    <EmbeddedResource Include="Resources\Articles.txt" />
+    <Content Include="TextFiles\Articles.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +93,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
