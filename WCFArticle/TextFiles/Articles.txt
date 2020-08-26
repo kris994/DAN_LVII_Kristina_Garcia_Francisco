@@ -1,0 +1,7 @@
+Notebook:100:120.00
+Pan:200:50.00
+Eraser:200:30.00
+Printing Paper:1200:3.99
+Calculator:5:748.99
+Book:30:1049.99
+Bag:10:2679.58
