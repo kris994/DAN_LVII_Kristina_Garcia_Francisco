@@ -8,9 +8,6 @@ namespace WCFArticle
     public interface IArticleService
     {
         [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
         List<Article> GetAllArticles();
 
         [OperationContract]
@@ -18,5 +15,8 @@ namespace WCFArticle
 
         [OperationContract]
         Article ModifyArticle(Article article);
+
+        [OperationContract]
+        void SaveBill(string bill);
     }
 }

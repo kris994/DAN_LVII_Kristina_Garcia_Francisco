@@ -6,9 +6,9 @@ namespace PurchaseArticle
     {
         public static void Main(string[] args)
         {
-            ArticleUIData articleFile = new ArticleUIData();
+            ArticleUserInput articleFile = new ArticleUserInput();
 
-            articleFile.EditArticle();
+            articleFile.PurchaseArticles();
             Console.ReadKey();
         }
     }

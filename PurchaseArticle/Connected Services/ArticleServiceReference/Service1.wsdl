@@ -7,12 +7,6 @@
       <xsd:import schemaLocation="http://localhost:50426/ArticleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFArticle.Model" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IArticleService_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
-  </wsdl:message>
-  <wsdl:message name="IArticleService_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
-  </wsdl:message>
   <wsdl:message name="IArticleService_GetAllArticles_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllArticles" />
   </wsdl:message>
@@ -31,11 +25,13 @@
   <wsdl:message name="IArticleService_ModifyArticle_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModifyArticleResponse" />
   </wsdl:message>
+  <wsdl:message name="IArticleService_SaveBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBill" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_SaveBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBillResponse" />
+  </wsdl:message>
   <wsdl:portType name="IArticleService">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetData" message="tns:IArticleService_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetDataResponse" message="tns:IArticleService_GetData_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetAllArticles">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetAllArticles" message="tns:IArticleService_GetAllArticles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetAllArticlesResponse" message="tns:IArticleService_GetAllArticles_OutputMessage" />
@@ -48,18 +44,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/ModifyArticle" message="tns:IArticleService_ModifyArticle_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/ModifyArticleResponse" message="tns:IArticleService_ModifyArticle_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SaveBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/SaveBill" message="tns:IArticleService_SaveBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/SaveBillResponse" message="tns:IArticleService_SaveBill_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IArticleService" type="tns:IArticleService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IArticleService/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetAllArticles">
       <soap:operation soapAction="http://tempuri.org/IArticleService/GetAllArticles" style="document" />
       <wsdl:input>
@@ -80,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="ModifyArticle">
       <soap:operation soapAction="http://tempuri.org/IArticleService/ModifyArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBill">
+      <soap:operation soapAction="http://tempuri.org/IArticleService/SaveBill" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

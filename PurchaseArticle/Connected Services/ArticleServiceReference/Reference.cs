@@ -94,12 +94,6 @@ namespace PurchaseArticle.ArticleServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ArticleServiceReference.IArticleService")]
     public interface IArticleService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetData", ReplyAction="http://tempuri.org/IArticleService/GetDataResponse")]
-        string GetData(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetData", ReplyAction="http://tempuri.org/IArticleService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetAllArticles", ReplyAction="http://tempuri.org/IArticleService/GetAllArticlesResponse")]
         PurchaseArticle.ArticleServiceReference.Article[] GetAllArticles();
         
@@ -117,6 +111,12 @@ namespace PurchaseArticle.ArticleServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/ModifyArticle", ReplyAction="http://tempuri.org/IArticleService/ModifyArticleResponse")]
         System.Threading.Tasks.Task<PurchaseArticle.ArticleServiceReference.Article> ModifyArticleAsync(PurchaseArticle.ArticleServiceReference.Article article);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/SaveBill", ReplyAction="http://tempuri.org/IArticleService/SaveBillResponse")]
+        void SaveBill(string bill);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/SaveBill", ReplyAction="http://tempuri.org/IArticleService/SaveBillResponse")]
+        System.Threading.Tasks.Task SaveBillAsync(string bill);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -146,14 +146,6 @@ namespace PurchaseArticle.ArticleServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
         public PurchaseArticle.ArticleServiceReference.Article[] GetAllArticles() {
             return base.Channel.GetAllArticles();
         }
@@ -176,6 +168,14 @@ namespace PurchaseArticle.ArticleServiceReference {
         
         public System.Threading.Tasks.Task<PurchaseArticle.ArticleServiceReference.Article> ModifyArticleAsync(PurchaseArticle.ArticleServiceReference.Article article) {
             return base.Channel.ModifyArticleAsync(article);
+        }
+        
+        public void SaveBill(string bill) {
+            base.Channel.SaveBill(bill);
+        }
+        
+        public System.Threading.Tasks.Task SaveBillAsync(string bill) {
+            return base.Channel.SaveBillAsync(bill);
         }
     }
 }

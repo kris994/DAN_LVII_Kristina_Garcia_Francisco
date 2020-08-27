@@ -22,7 +22,6 @@ namespace PurchaseArticle
             while (choose != "yes" && choose != "no")
             {
                 Console.Write("Invalid input. Please try again: ");
-                BackToMainMenu(choose);
                 choose = Console.ReadLine().ToLower();
             }
 
@@ -39,7 +38,6 @@ namespace PurchaseArticle
             while (string.IsNullOrEmpty(word))
             {
                 Console.Write("The input cannot be empty. Please try again: ");
-                BackToMainMenu(word);
                 word = Console.ReadLine();
             }
 
@@ -91,9 +89,8 @@ namespace PurchaseArticle
             bool b = Int32.TryParse(s, out int Num);
             while (!b || Num < 1 || Num > maxValue)
             {
-                Console.Write("Invalid input. Please try again: ");
+                Console.Write($"The value cannot be below 1 or above {maxValue}. Please try again: ");
                 s = Console.ReadLine();
-                BackToMainMenu(s);
                 b = Int32.TryParse(s, out Num);
             }
             return Num;
@@ -112,7 +109,6 @@ namespace PurchaseArticle
             {
                 Console.Write("Invalid input. Please try again: ");
                 s = Console.ReadLine();
-                BackToMainMenu(s);
                 b = Int32.TryParse(s, out Num);
             }
             return Num;
@@ -131,7 +127,6 @@ namespace PurchaseArticle
             {
                 Console.Write("Invalid input. Please try again: ");
                 s = Console.ReadLine();
-                BackToMainMenu(s);
                 b = double.TryParse(s, out Num);
             }
             return Num;
