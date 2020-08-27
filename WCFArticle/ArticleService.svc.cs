@@ -7,6 +7,9 @@ using WCFArticle.Model;
 
 namespace WCFArticle
 {
+    /// <summary>
+    /// Service class
+    /// </summary>
     public class Service1 : IArticleService
     {
         /// <summary>
@@ -141,6 +144,10 @@ namespace WCFArticle
             return article;
         }
 
+        /// <summary>
+        /// Saves the bill for the given purchase
+        /// </summary>
+        /// <param name="bill">Purchase bill preview</param>
         public void SaveBill(string bill)
         {
             // Create Folder if it does not exist

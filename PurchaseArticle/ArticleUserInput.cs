@@ -23,11 +23,11 @@ namespace PurchaseArticle
                 {
                     if (item.Amount != 0)
                     {
-                        Console.WriteLine($"{++counter}. {item.Name} - {item.Price} rsd, Amount: {item.Amount}");
+                        Console.WriteLine("{0,3}. {1,20} - {2,-1}\t {3,-20}", ++counter, item.Name, (item.Price).ToString("0.00") + " rsd", "Amount: " +  item.Amount);
                     }
                     else
                     {
-                        Console.WriteLine($"{++counter}. >>OUT OF STOCK<< {item.Name} - {item.Price} rsd");
+                        Console.WriteLine("{0,3}. {1,20} - {2,-1}\t {3,-20}", ++counter,  item.Name, (item.Price).ToString("0.00") + " rsd", ">> OUT OF STOCK <<");
                     }
                 }               
             }
@@ -49,6 +49,7 @@ namespace PurchaseArticle
             Console.Write("Please enter the article price: ");
             double price = val.ValidPositiveDouble();
 
+            // Creates a new article
             Article article = new Article()
             {
                 Name = name,
@@ -86,6 +87,7 @@ namespace PurchaseArticle
             Console.Write("Choose the new price: ");
             double price = val.ValidPositiveDouble();
 
+            // Used for later notification depending if the article was updated or not
             Article changedArticle = new Article();
 
             using (ArticleServiceClient wcf = new ArticleServiceClient())
@@ -127,15 +129,17 @@ namespace PurchaseArticle
             Console.WriteLine("==============================================\n" +
                 "Return option is disabled until purchase is completed." +
                 "\n==============================================");
+
+            // Do until User presses No as an answer
             do
             {
                 int count = ShowAllArticles();
 
                 using (ArticleServiceClient wcf = new ArticleServiceClient())
                 {
-
                     List<Article> allArticles = wcf.GetAllArticles().ToList();
 
+                    // Do until a valid item is selected
                     do
                     {
                         Console.Write("\nSelect an article number: ");
@@ -147,12 +151,11 @@ namespace PurchaseArticle
                         }
                     } while (currentAmount == 0);
 
-
+                    // Select amount
                     Console.Write("Choose the amount: ");
-                    Article changedArticle = new Article();
-
                     int amount = val.ValidMaxPositiveNumber(allArticles[number - 1].Amount);
 
+                    // Changed article after reducing the total amount
                     Article article = new Article()
                     {
                         Name = allArticles[number - 1].Name,
@@ -160,9 +163,10 @@ namespace PurchaseArticle
                         Price = allArticles[number - 1].Price
                     };
 
+                    // Calculate total price and save the item on the bill
                     totalPrice += amount * article.Price;
-                    bill += article.Name + " - " + (amount * article.Price) + " (" + amount + "*" + article.Price  + ")" +"|";
-                    changedArticle = wcf.ModifyArticle(article);
+                    bill += article.Name + " - " + (amount * article.Price) + " rsd" + "\t\t(" + amount + "*" + article.Price  + ")" +"|";
+                    wcf.ModifyArticle(article);
                 }
 
                 Console.Write("\nWould you like to purchase more items? (yes/no): ");
@@ -170,8 +174,10 @@ namespace PurchaseArticle
                 Console.Clear();
             } while (answer.ToLower() == "yes");
 
-            bill += "|-----------------------|Total price: " + totalPrice + "|" + "Hour: " + DateTime.Now.ToString("HH:mm:ss") + "|";
+            // Update bill with all the info before saving it
+            bill += "|-----------------------|Total price: " + totalPrice + " rsd|" + "Hour: " + DateTime.Now.ToString("HH:mm:ss") + "|";
 
+            // Save the bill
             using (ArticleServiceClient wcf = new ArticleServiceClient())
             {
                 wcf.SaveBill(bill);
