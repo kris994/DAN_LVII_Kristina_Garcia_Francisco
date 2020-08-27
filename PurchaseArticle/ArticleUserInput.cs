@@ -124,7 +124,9 @@ namespace PurchaseArticle
             int currentAmount = 0;
             double totalPrice = 0;
             Validations val = new Validations();
-
+            Console.WriteLine("==============================================\n" +
+                "Return option is disabled until purchase is completed." +
+                "\n==============================================");
             do
             {
                 int count = ShowAllArticles();
@@ -175,6 +177,7 @@ namespace PurchaseArticle
                 wcf.SaveBill(bill);
             }
 
+            // Bill preview
             Console.WriteLine("Successfult finished the purchase!\n");
             string[] billInfo = bill.Split('|');
             foreach (var item in billInfo)

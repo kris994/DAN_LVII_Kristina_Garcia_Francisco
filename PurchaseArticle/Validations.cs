@@ -53,11 +53,12 @@ namespace PurchaseArticle
             using (ArticleServiceClient wcf = new ArticleServiceClient())
             {
                 List<Article> allArticls = wcf.GetAllArticles().ToList();
-                string word = Console.ReadLine().ToLower();
+                string word = Console.ReadLine();
+                BackToMainMenu(word);
 
                 for (int i = 0; i < allArticls.Count; i++)
                 {
-                    if (allArticls[i].Name.ToLower() == word)
+                    if (allArticls[i].Name.ToLower() == word.ToLower())
                     {
                         Console.Write("This article name already exists. Please try again: ");
                         BackToMainMenu(word);
@@ -68,7 +69,7 @@ namespace PurchaseArticle
                     {
                         Console.Write("The input cannot be empty. Please try again: ");
                         BackToMainMenu(word);
-                        word = Console.ReadLine().ToLower();
+                        word = Console.ReadLine();
                         i = -1;
                     }
                 }
@@ -85,7 +86,6 @@ namespace PurchaseArticle
         public int ValidMaxPositiveNumber(int maxValue)
         {
             string s = Console.ReadLine();
-            BackToMainMenu(s);
             bool b = Int32.TryParse(s, out int Num);
             while (!b || Num < 1 || Num > maxValue)
             {
@@ -127,6 +127,7 @@ namespace PurchaseArticle
             {
                 Console.Write("Invalid input. Please try again: ");
                 s = Console.ReadLine();
+                BackToMainMenu(s);
                 b = double.TryParse(s, out Num);
             }
             return Num;

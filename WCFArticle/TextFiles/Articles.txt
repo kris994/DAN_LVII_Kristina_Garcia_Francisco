@@ -1,7 +1,10 @@
-Eraser:200:30.00
-Pan:195:78.90
-Printing Paper:190:3.99
-Bag:1:2679.58
 Book:14:1100.00
 Notebook:84:120.00
-Calculator:4:748.99
+Eraser:199:30.00
+Clock:5:300.00
+Colored pancil:430:155.99
+Calculator:1:748.99
+Bag:0:2679.58
+Bursh:8:30.58
+Printing Paper:169:3.99
+Pan:185:78.90
